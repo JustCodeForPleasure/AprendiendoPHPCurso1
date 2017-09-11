@@ -44,6 +44,7 @@ if(isset($_POST['submit'])){
 		mail($enviar_a, $asunto, $mensaje_preparado);
 		$enviado = true;
 	}
+	//Falta meter el header;
 }
 	require "vista.php";
  ?>
