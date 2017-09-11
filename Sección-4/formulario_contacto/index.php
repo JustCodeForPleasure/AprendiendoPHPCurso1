@@ -35,13 +35,18 @@ if(isset($_POST['submit'])){
 	}
 
 	if(!$errores){
-		$enviar_a = 'joan.gc.mail@gmail.com';
+		$enviar_a = 'davidgg.ccred@gmail.com';
 		$asunto = 'Correo enviado desde formulario_contacto Sección-4 AprendiendoPHP Curso 1';
 		$mensaje_preparado = "De: $nombre \n";
 		$mensaje_preparado .= "Correo: $correo \n";
 		$mensaje_preparado .= "Mensaje: " . $mensaje;
 
-		mail($enviar_a, $asunto, $mensaje_preparado);
+		$headers = "MIME-Version: 1.0\r\n"; 
+		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+		//dirección del remitente 
+		$headers .= "From: App Contacto < joan.gc.mail@gmail.com >\r\n";
+
+		mail($enviar_a, $asunto, $mensaje_preparado, $headers);
 		$enviado = true;
 	}
 	//Falta meter el header;
